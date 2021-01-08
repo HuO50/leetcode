@@ -3,6 +3,7 @@ from typing import List
 
 
 class Solution:
+    # 暴力法1
     def maxProfit(self, prices: List[int]) -> int:
         if len(prices) <= 1:
             return 0
@@ -24,6 +25,7 @@ class Solution:
                     max_profit = price_count[j][i]
         return max_profit
 
+    # 暴力法2
     def maxProfit2(self, prices: List[int]) -> int:
         if len(prices) <= 1:
             return 0
@@ -45,6 +47,7 @@ class Solution:
                     max_profit = tmp
         return max_profit
 
+    # 动态规划1
     def maxProfit3(self, prices: List[int]) -> int:
         minprice = float('inf')
         maxprice = 0
