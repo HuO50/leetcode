@@ -56,8 +56,19 @@ class Solution:
             maxprice = max(maxprice, price - minprice)
         return maxprice
 
+    def maxProfit4(self, prices: List[int]) -> int:
+        left = 0
+        right = 1
+        max_profit = 0
+        for right in range(1, len(prices)):
+            if (prices[left] > prices[right]):
+                left = right
+            else:
+                max_profit = max(max_profit, prices[right] - prices[left])
+        return max_profit
+
 
 if __name__ == "__main__":
     asolute = Solution()
-    result = asolute.maxProfit3([1, 2, 3])
+    result = asolute.maxProfit4([1, 2, 3])
     print(result)
