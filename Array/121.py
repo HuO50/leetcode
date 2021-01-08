@@ -56,6 +56,7 @@ class Solution:
             maxprice = max(maxprice, price - minprice)
         return maxprice
 
+    # 双指针法
     def maxProfit4(self, prices: List[int]) -> int:
         left = 0
         right = 1
@@ -66,6 +67,36 @@ class Solution:
             else:
                 max_profit = max(max_profit, prices[right] - prices[left])
         return max_profit
+
+    def maxProfit5(self, prices: List[int]) -> int:
+        left = 0
+        right = len(prices) - 1
+        max_profit = self.divideList(prices, left, right)
+        return max_profit
+
+    def divideList(self, prices, left, right):
+        if left == right:
+            return
+        mid = (left + right) / 2
+        divideList(prices, left, mid)
+        divideList(prices, mid + 1, right)
+        self.mergeList(prices, left, mid, right, res)
+
+    def mergeList(self, prices, left, mid, right, res):
+        max_price = float('-inf')
+        min_price = float('inf')
+
+        for i in range(left, mid):
+            min_price = min(min_price, prices[i])
+
+        for i in range(mid + 1, right)
+        max_price = max(max_price, prices[i])
+
+        ret = max_price - min_price
+        if (res < ret):
+            return ret
+        else:
+            return res
 
 
 if __name__ == "__main__":
