@@ -30,6 +30,13 @@ class Solution2:
                 answer.append(False)
         return answer
 
+# 最好的方法
+
+
+class Solution3:
+    def prefixesDivBy5(self, A: List[int]) -> List[bool]:
+        return (n == 0 for n in accumulate(A, lambda x, y: ((x << 1)+y) % 5))
+
 
 if __name__ == "__main__":
     asolution = Solution2()
