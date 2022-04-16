@@ -17,6 +17,7 @@ class Solution:
             return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
     def inorderTraversal2(self, root: Optional[TreeNode]) -> List[int]:
+        
         pass
 
 def main():
